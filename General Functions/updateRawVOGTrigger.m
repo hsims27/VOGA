@@ -81,9 +81,40 @@ ylabel('Velocity (dps)')
 legend('GyroX','GyroY','GyroZ','Trigger')
 axis([Time_Eye(1) Time_Eye(end) -10 110])
 Fs = 1/mean(diff(Time_Eye));
+%% OLD Code that worked before
+%         % CODED FOR SOME NOISY TRIGGER EXPERIMENTS
+%         plot(100*StimAll,'b')
+%         noisy = questdlg(['Bad trigger?',newline,In_Path],'','Fine','Noisy','Fine');
+%         if strcmp(noisy,'Noisy')
+%             if all(StimAll(1:10)) %Just flipped so starts at 0
+%                 Stim2 = -StimAll+1; 
+%             else
+%                 Stim2 = StimAll;
+%             end   
+%             min_time = 0.1;  %Lets say 100ms is the smallest time frame to expect a change (5Hz)
+%             sus_len = floor(min_time*Fs); % minimum number of expected consecutive zeros
+%             zero_vals = find(Stim2==0);
+%             k = 2;
+%             while(k<length(zero_vals))
+%                 if zero_vals(k+1)-1 == zero_vals(k)
+%                     zero_vals(k) = [];
+%                 else
+%                     k = k+1;
+%                 end
+%             end
+%             start1 = zero_vals(1:end-1);
+%             end1 = zero_vals(2:end);
+%             difference = end1 - start1;
+%             start1(difference < sus_len) = [];
+%             end1(difference < sus_len) = [];
+%             Stim3 = ones(length(Stim2),1);
+%             for i = 1:length(start1)
+%                 Stim3(start1(i):end1(i)) = 0;
+%             end
+%             StimAll = Stim3;
+%         end
 %% Templates
 %Frequency Sweep High to Low
-
 t1 = 405;
 t2 = 440;
 cyc_num = 10;

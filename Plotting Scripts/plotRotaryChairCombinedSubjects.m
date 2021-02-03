@@ -6,6 +6,20 @@ clc;
 clear;
 close all;
 %% Normative Rotary Chair Data
+notes = 'Normative Data from Wall et. al. 1984 on patients 50-69';
+freq = [0.005 0.010 0.020 0.050 0.100 0.200 0.500 1.000];
+gain = [0.2175	0.3576	0.4803	0.5634	0.56	0.5445	0.5678	0.698];
+gain_std = [0.0757	0.1235	0.1474	0.2243	0.2363	0.2509	0.2121	0.2777];
+phase = [70.9478	43.6413	25.9262	10.7906	4.084	-4.8461	-11.4084 -11.3412];
+phase_std = [7.5044	6.526	6.714	8.0519	4.5136	7.6279	6.2448	11.3167];
+norm_dat.notes = notes;
+norm_dat.freq = freq;
+norm_dat.gain = gain;
+norm_dat.gain_std = gain_std;
+norm_dat.phase = phase;
+norm_dat.phase_std = phase_std;
+save('RotaryChairNormativeData.mat','norm_dat')
+%%
 freq = [0.005 0.010 0.020 0.050 0.100 0.200 0.500 1.000];
 %Normative Data from Wall et. al. 1984 on patients 50-69
 norm_gain_m = [0.2175	0.3576	0.4803	0.5634	0.56	0.5445	0.5678	0.698];
