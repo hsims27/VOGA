@@ -1,2 +1,4 @@
-Version v1.1.1
+<<<<<<< HEAD
+Version v1.1.2
 Experimenter HJVSims
+>>>>>>> upstream/master
