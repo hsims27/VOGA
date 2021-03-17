@@ -9,8 +9,8 @@ function plotParamResults(type,path,code_Path,version,Experimenter,annot)
     warning('off')
     sub_info = readtable('SubjectInfo.xlsx');
     warning('on')
-    Subs = sub_info.Subject;
-    Ears = sub_info.Ear;
+    Subs = sub_info{:,1};
+    Ears = sub_info{:,2};
     % Load table in question
     res_file = extractfield(dir([path,filesep,'*Results.mat']),'name')';
     if isempty(res_file)
